@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+<main class="max-w-2xl mx-auto mt-10 px-4">
+  <h2 class="text-2xl font-bold mb-6">Create New Post</h2>
+  <form method="POST" action="/new" class="bg-white p-6 rounded shadow space-y-4">
+    <div>
+      <label for="title" class="block font-semibold mb-1">Title</label>
+      <input type="text" id="title" name="title" required class="w-full border border-gray-300 rounded px-3 py-2">
+    </div>
+    <div>
+      <label for="content" class="block font-semibold mb-1">Content</label>
+      <textarea id="content" name="content" required rows="5" class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+    </div>
+    <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">
+      Publish
+    </button>
+  </form>
+</main>

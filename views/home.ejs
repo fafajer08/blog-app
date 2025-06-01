@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<section class="bg-gradient-to-r from-blue-400 to-teal-400 text-white py-16 text-center px-6">
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to My Blog</h1>
+  <p class="text-lg md:text-xl mb-6">Write. Share. Inspire. Your thoughts matter.</p>
+  <a href="/new" class="bg-white text-blue-500 font-semibold py-2 px-6 rounded shadow hover:bg-gray-200 transition">
+    Create New Post
+  </a>
+</section>
+
+<main class="max-w-3xl mx-auto mt-10 px-4">
+  <h2 class="text-2xl font-semibold mb-6">Recent Posts</h2>
+
+  <% if (posts.length === 0) { %>
+    <p class="text-gray-600 italic">No posts yet. <a href="/new" class="text-blue-500 underline">Write one now!</a></p>
+  <% } else { %>
+    <% posts.forEach((post, index) => { %>
+      <div class="bg-white p-6 mb-6 rounded shadow border-l-4 border-blue-500">
+        <h3 class="text-xl font-semibold mb-2"><%= post.title %></h3>
+        <p class="text-gray-700"><%= post.content %></p>
+        <div class="mt-4 space-x-4">
+          <a href="/edit/<%= index %>" class="text-blue-600 hover:underline">Edit</a>
+          <form method="POST" action="/delete/<%= index %>" class="inline">
+            <button type="submit" class="text-red-600 hover:underline">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</main>
